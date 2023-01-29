@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phone Directory</title>
+    <style>
+        h1, form {
+        text-align: center;
+        padding: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Phone Directory</h1>
+    <form action="{{ url_for('add_entry') }}" method="post">
+        <input style = "padding: 8px;" type="text" name="name" placeholder="Name">
+        <br>
+        <input style = "padding: 8px; margin-top: 4px;" type="text" name="phone" placeholder="Phone Number">
+        <br>
+        <input style = "width: 70px; height: 35px; margin-top: 8px;" type="submit" value="Add">
+    </form>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+        </tr>
+        {% for entry in entries %}
+        <tr>
+            <td><a href="{{ url_for('view_entry', id=entry[0]) }}">{{ entry[1] }}</a></td>
+            <td>{{ entry[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

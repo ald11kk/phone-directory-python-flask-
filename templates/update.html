@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Entry</title>
+    <style>
+        h1, form {
+            text-align: center;
+        }
+        form input[type=text], form input[type=submit] {
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Entry</h1>
+    <form action="{{ url_for('update_entry', id=entry[0]) }}" method="post">
+        <input type="text" name="name" value="{{ entry[1] }}">
+        <input type="text" name="phone" value="{{ entry[2] }}">
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
